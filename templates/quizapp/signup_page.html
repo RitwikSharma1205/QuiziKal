@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/signupPage.css' %}" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-md bg-light p-4 rounded-3 mt-5 d-flex justify-content-center flex-column w-75">
+        <div class="container">
+
+            <p class="text-center my-3 fs-1">Create Account</p>
+        </div>
+        <form action="{% url 'signup'%}" method="post" autocomplete="off" class="px-5">
+            {% csrf_token %}
+            <div class="row mb-3">
+                <label for="fn" class="col-sm-2 col-form-label fs-5">First Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="FirstName" id="fn" required>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="ln" class="col-sm-2 col-form-label fs-5">Last Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="LastName" id="ln" required>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="un" class="col-sm-2 col-form-label fs-5">Username</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="Username" id="un" required>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="email" class="col-sm-2 col-form-label fs-5">Email</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" name="Email" id="email" required>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="pwd" class="col-sm-2 col-form-label fs-5">Password</label>
+                <div class="col-sm-10">
+                    <input type="password"class="form-control" name="password" required>
+                </div>
+            </div>
+            <div class="col-12">
+                <input type="submit" value="SAVE"  class="btn btn-primary">
+              </div>
+            <p class="fs-6 mt-4">Already have an account? <a  class="link-info" href="{% url 'login' %}">Login</a></p>
+            {% if error %}
+            <p style="color: red;">{{error}}</p>
+            {% endif %}
+    </div>
+    </form>
+    <script src="{% static 'bootstrap/js/popper.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/login_page.js' %}"></script>
+</body>
+
+</html>

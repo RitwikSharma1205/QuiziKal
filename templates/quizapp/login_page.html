@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/loginPage.css' %}" />
+    <title>Login</title>
+</head>
+
+<body>
+    <h1 class="fs-1  text-center my-4" style="color: aliceblue;">QuiziKal</h1>
+    <div class="container-sm d-flex justify-content-center bg-light rounded-3 border border-2 my-5 w-75 bg-gradient
+    shadow ">
+        <div class="container-sm py-4" id="form-image">
+            <img src="{% static 'images/test.svg' %}" class="img-fluid" alt="...">
+        </div>
+        <div class="container-sm py-5">
+            <form action="{% url 'login' %}" method="post" autocomplete="off" class="row g-4">
+                {% csrf_token %}
+                <div class="row mb-3">
+                    <label for="uname" class="form-label">Username</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="username" id="uname" required class="form-control"onkeydown="remove_msg(this)" >
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <div class="col-sm-10">
+                        <input type="password" name="password" id="pwd" required class="form-control"onkeydown="remove_msg(this)">
+                    </div>
+                </div>
+                <div class="submit-btn">
+                    <input type="submit" value="Login" class="btn btn-primary">
+                </div>
+            </form>
+            <p class="fs-6 mt-4">Not registered? <a class="link-info" href="{% url 'signup' %}">Signup Now </a></p>
+            {% if error %}
+            <div class="alert alert-warning" role="alert"  id="warn">
+                {{error}}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <script src="{% static 'bootstrap/js/popper.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/login_page.js' %}"></script>
+</body>
+
+</html>

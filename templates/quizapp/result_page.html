@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="card container-sm mt-5" style="width: 20rem;">
+        {% if total >= 8 %}
+        <img src="{% static 'images/emoji.png' %}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Congratulations! you have cleared this quiz.</h5>
+        </div>
+        {% else %}
+        <img src="{% static 'images/sad-emoji.png' %}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Sorry, try next time. </h5>
+        </div>
+        {% endif %}
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Total correct answers : {{correct}}</li>
+            <li class="list-group-item">Total incorrect answers : {{incorrect}}</li>
+            <li class="list-group-item">Total marks obtained : {{total}}</li>
+        </ul>
+        <div class="card-body d-flex justify-content-between">
+            <button class="btn btn-info " type="submit"><a href="{% url 'quiz' %}" style="text-decoration: none; color: aliceblue;">Retake test</a></button>
+            <button class=" btn btn-danger" type="submit"><a href="{% url 'logout' %}" style="text-decoration: none; color: aliceblue;">Logout</a></button>
+        </div>
+    </div>
+    <script src="{% static 'bootstrap/js/popper.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>

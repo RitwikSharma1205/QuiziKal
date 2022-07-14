@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructions</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css'%}">
+</head>
+
+<body>
+    <div class="
+        container-sm
+        d-flex
+        flex-column
+        justify-content-center
+        align-items-center
+        bg-light bg-gradient
+        shadow
+        p-4
+        mt-5
+      ">
+        <h1 class="fs-1 text-uppercase" style="color: #120e43">Instructions</h1>
+        <ul class="list-group list-group-flush mt-4 fs-5">
+            <li class="list-group-item list-group-item-info">
+                All questions are compulsory.
+            </li>
+            <li class="list-group-item list-group-item-light">
+                Each MCQ has only one correct answer.
+            </li>
+            <li class="list-group-item list-group-item-info">
+                Each question carries 2 marks. Total 10 questions for a total of 20
+                marks.
+            </li>
+            <li class="list-group-item list-group-item-light">
+                There is no negative marking
+            </li>
+            <li class="list-group-item list-group-item-info">
+                After completing quiz click on submit button to submit the quiz and to
+                get your result.
+            </li>
+            <li class="list-group-item list-group-item-light">
+                Best of Luck !
+            </li>
+        </ul>
+        <div class="d-grid gap-5 d-md-flex justify-content-spacebetween mt-5">
+            <a href="{% url 'logout' %}" class="btn btn-danger btn-md" tabindex="-1" role="button"
+                aria-disabled="true">Go Back</a>
+            <a href="{% url 'quiz' %}" class="btn btn-success btn-md" tabindex="-1" role="button" aria-disabled="true">Continue</a>
+        </div>
+    </div>
+    <script src="{% static 'bootstrap/js/popper.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <!-- <div class="instruction-div">
+
+    </div>
+    <div class="operation-buttons">
+        <button type="submit"><a href="{% url 'login' %}">Go Back</a></button>
+        <button type="submit"><a href="{% url 'quiz' %}">Start Test</a></button>
+    </div> -->
+</body>
+
+</html>
